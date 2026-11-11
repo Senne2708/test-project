@@ -10,6 +10,9 @@ path = "./src/bin/main.rs"
 
 [dependencies]
 esp-hal = { version = "~1.2.2", features = ["esp32c3"] }
+embedded-graphics = "0.8.1"
+embedded-hal-bus = "0.3.0"
+epd-waveshare = "0.6.0"
 
 
 esp-bootloader-esp-idf = { version = "0.6.0", features = ["esp32c3"] }

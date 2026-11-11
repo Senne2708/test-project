@@ -1,13 +1,34 @@
 {
   "version": 1,
-  "author": "senne",
+  "author": "Kirill Mikhailov [playfulFence]",
   "editor": "wokwi",
   "parts": [
-    { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": 0, "left": 0, "attrs": {} }
+    {
+      "type": "board-esp32-c3-devkitm-1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": { "builder": "rust-nostd-esp" }
+    },
+    {
+      "type": "board-epaper-2in9",
+      "id": "epd1",
+      "top": -150,
+      "left": 100,
+      "attrs": {}
+    }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
-    [ "esp:RX", "$serialMonitor:TX", "", [] ]
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:6", "epd1:CLK", "blue", [] ],
+    [ "esp:7", "epd1:DIN", "white", [] ],
+    [ "esp:2", "epd1:CS", "green", [] ],
+    [ "esp:3", "epd1:DC", "purple", [] ],
+    [ "esp:10", "epd1:RST", "yellow", [] ],
+    [ "esp:4", "epd1:BUSY", "orange", [] ],
+    [ "esp:GND.1", "epd1:GND", "black", [] ],
+    [ "esp:3V3.1", "epd1:VCC", "red", [] ]
   ],
   "serialMonitor": { "display": "terminal" }
 }
